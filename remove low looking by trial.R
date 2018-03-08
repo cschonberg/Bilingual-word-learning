@@ -13,14 +13,18 @@ library(tidyverse)
 folder <- "C:/Users/Christina/Dropbox/Dissertation/Data/FinalET/Custom Test/T1/"
 file_list <- list.files(path=folder, pattern="*.csv")
 
+# make a new array that holds the read in files, maybe we need to do this? IDK Rlang
+read_file_list <- 1:length(file_list)
+
 for (i in 1:length(file_list)){
-  assign(file_list[i],
+  assign(read_file_list[i],
          read_csv(paste(folder,file_list[i], sep=''))) 
-  #filtered <- filter(data0, ((trialtype == "L" | trialtype == "R") & ipDwellTime > 3600) | 
-   #       ((trialtype == "target" | trialtype == "distracter") & ipDwellTime > 900))
-#  for (j in 1:length(file_list)){
-#    write_csv(file_list[i], paste(folder,"Filtered/",file_list[i],sep=''))
-#  }
+  # filter on the read-in files
+  filtered <- filter(read_file_list[i], ((trialtype == "L" | trialtype == "R") & ipDwellTime > 3600) | 
+         ((trialtype == "target" | trialtype == "distracter") & ipDwellTime > 900))
+  # write to the address kept in file_list
+   write_csv(file_list[i], paste(folder,"Filtered/",file_list[i],sep=''))
+
 }
 
 

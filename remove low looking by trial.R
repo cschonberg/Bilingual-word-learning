@@ -22,7 +22,7 @@ for (i in 1:length(file_list)){
 
 
   # So what this ( below ) function was actually doing is to replace the name of the file
-  # with the data in the read-in file? bonkers.
+  # with the data in the read-in file?
   # assign(file_list[i],
   #        read_csv(paste(folder,file_list[i], sep='')))
 

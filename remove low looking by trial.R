@@ -33,7 +33,7 @@ for (i in 1:length(file_list)){
 	filtered.data <- filter(data0, ((trialtype == "L" | trialtype == "R") & ipDwellTime > 3600) | 
          ((trialtype == "target" | trialtype == "distracter") & ipDwellTime > 900))
 	# write the data (that we only have one copy of) to the file (indexed on "i")
-	write_csv(filtered.data, paste(folder,file_list[i], sep=''))
+	write_csv(filtered.data, paste(folder,"Filtered/",file_list[i],sep=''))
 
 }
 
